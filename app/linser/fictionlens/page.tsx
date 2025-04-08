@@ -27,12 +27,6 @@ const draw = () => {
   }
   requestAnimationFrame(draw);
 };
-<canvas
-  ref={canvasRef}
-  width={640}
-  height={480}
-  className="w-full max-w-md mt-8 rounded-lg shadow-xl border-4 border-white"
-/>
     }
   }, []);
 
@@ -43,12 +37,12 @@ const draw = () => {
         En imaginær linse som gjør alt du ser til en scene i en film.<br />
         Her får du se verden som fiksjon.
       </p>
-      <video
-        ref={videoRef}
-        autoPlay
-        playsInline
-        className="w-full max-w-md mt-8 rounded-lg shadow-xl border-4 border-white"
-      />
+   <canvas
+  ref={canvasRef}
+  width={640}
+  height={480}
+  className="w-full max-w-md mt-8 rounded-lg shadow-xl border-4 border-white"
+/>
     </main>
   );
 }
