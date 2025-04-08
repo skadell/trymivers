@@ -23,6 +23,8 @@ export default function Fictionlens() {
           const draw = () => {
             if (videoRef.current && canvas && context) {
               context.drawImage(videoRef.current, 0, 0, canvas.width, canvas.height);
+
+              // UI-tekst og datostempel
               context.font = '16px monospace';
               context.fillStyle = '#FFCC00';
               context.fillText('11.02.2000', 10, canvas.height - 10);
@@ -46,29 +48,27 @@ export default function Fictionlens() {
     if (!canvas) return;
     const dataUrl = canvas.toDataURL('image/png');
     setImageDataUrl(dataUrl);
+
+    // Spill av lyd senere: new Audio('/camera-shutter.wav').play();
   };
 
   return (
     <main className="min-h-screen bg-[#0033A0] text-white p-10 flex flex-col items-center">
-      <div className="relative w-[640px] h-[480px]">
+      <div
+        className="relative"
+        style={{ width: 870, height: 500 }}
+      >
         <canvas
           ref={canvasRef}
-          width={640}
-          height={480}
-          className="absolute top-0 left-0 w-full h-full z-10 rounded"
+          width={494}
+          height={356}
+          className="absolute top-[72px] left-[52px] z-10 rounded"
         />
-
-        <video
-          ref={videoRef}
-          autoPlay
-          playsInline
-          className="hidden"
-        />
-
+        <video ref={videoRef} autoPlay playsInline className="hidden" />
         <img
           src="/kamera.png"
           alt="Digitalkamera-ramme"
-          className="absolute top-0 left-0 w-full h-full z-20 pointer-events-none"
+          className="absolute top-0 left-0 w-[870px] h-[500px] z-20 pointer-events-none"
         />
       </div>
 
