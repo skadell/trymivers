@@ -12,10 +12,11 @@ export default function Home() {
  Et levende arkiv av impulser, uttrykk og digitale drypp fra under overflaten.  
           Her finner du fragmenter av lyd, tekst, bilder og idéer – alt filtrert gjennom ett og samme blikk.  
           Du trenger ikke forstå alt. Bare føl deg frem.
-       <Link href="/Musikk">
+     <Link href="/Musikk">
   <button className="mt-6 px-6 py-3 bg-white text-[#0033A0] font-semibold rounded-full hover:bg-gray-200 transition">
     Musikk
   </button>
+</Link>
         <Link href="/linser">
   <button className="mt-4 px-6 py-3 bg-white text-[#0033A0] font-semibold rounded-full hover:bg-gray-200 transition">
     Linser
