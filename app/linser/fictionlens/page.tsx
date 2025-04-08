@@ -23,14 +23,12 @@ export default function Fictionlens() {
           const draw = () => {
             if (videoRef.current && canvas && context) {
               context.drawImage(videoRef.current, 0, 0, canvas.width, canvas.height);
-
-              // UI-elementer
               context.font = '16px monospace';
               context.fillStyle = '#FFCC00';
               context.fillText('11.02.2000', 10, canvas.height - 10);
               context.fillStyle = '#00FF00';
               context.fillText('PLAY', 10, 20);
-              context.fillText('BATTERY ▓▓▓', canvas.width - 100, 20);
+              context.fillText('BATTERY ███', canvas.width - 100, 20);
             }
             requestAnimationFrame(draw);
           };
@@ -52,24 +50,21 @@ export default function Fictionlens() {
 
   return (
     <main className="min-h-screen bg-[#0033A0] text-white p-10 flex flex-col items-center">
-      {/* Kamera-container */}
-      <div className="relative w-[640px] h-[480px]">
-        {/* Canvas-video plassert i riktig posisjon bak displayet */}
+      <div className="relative w-[340px] h-[260px] sm:w-[400px] sm:h-[310px]">
         <canvas
           ref={canvasRef}
-          width={300}
-          height={225}
-          className="absolute top-[88px] left-[48px] z-0 rounded"
-        />
-        <img
-          src="/kamera.png"
-          alt="Digitalkamera"
-          className="absolute top-0 left-0 z-10 pointer-events-none w-full h-full"
+          width={320}
+          height={240}
+          className="absolute top-[36px] left-[36px] w-[215px] h-[160px] rounded"
         />
         <video ref={videoRef} autoPlay playsInline className="hidden" />
+        <img
+          src="/kamera.png"
+          alt="Digitalkamera-ramme"
+          className="absolute top-0 left-0 w-full h-full pointer-events-none select-none"
+        />
       </div>
 
-      {/* Ta bilde-knapp */}
       <button
         onClick={takeSnapshot}
         className="mt-6 px-6 py-3 bg-white text-[#0033A0] font-semibold rounded-full shadow hover:bg-gray-200 transition"
@@ -77,7 +72,6 @@ export default function Fictionlens() {
         Ta bilde
       </button>
 
-      {/* Last ned bilde-link */}
       {imageDataUrl && (
         <a
           href={imageDataUrl}
