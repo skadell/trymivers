@@ -63,7 +63,7 @@ export default function Fictionlens() {
         <img
           src="/kamera.png"
           alt="Digitalkamera-ramme"
-          className="absolute top-[193px] left-[352px] pointer-events-none"
+          className="absolute top-[160px] left-[310px] pointer-events-none"
           width={870}
           height={500}
         />
@@ -71,7 +71,7 @@ export default function Fictionlens() {
 
       <button
         onClick={takeSnapshot}
-        className="mt-12 px-6 py-3 bg-white text-[#0033A0] font-semibold rounded-full shadow hover:bg-gray-200 transition"
+        className="mt-16 px-6 py-3 bg-white text-[#0033A0] font-semibold rounded-full shadow hover:bg-gray-200 transition"
       >
         Ta bilde
       </button>
