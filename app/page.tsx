@@ -1,9 +1,7 @@
 import Link from 'next/link';
 
 export default function Home() {
-  return (
-<main className="min-h-screen bg-[#0033A0] text-white p-10 flex flex-col md:flex-row-reverse items-center justify-center gap-10">
-      {/* Knappene ligger nå øverst */}
+   {/* Knappene ligger nå øverst */}
       <div className="flex flex-wrap justify-center gap-4">
         <Link href="/Musikk">
           <button className="px-6 py-3 bg-white text-[#0033A0] font-semibold rounded-full hover:bg-gray-200 transition">
@@ -24,9 +22,9 @@ export default function Home() {
           <button className="px-6 py-3 bg-white text-[#0033A0] font-semibold rounded-full hover:bg-gray-200 transition">
             Bilder
           </button>
-        </Link>
+        </Link>  return (
+<main className="min-h-screen bg-[#0033A0] text-white p-10 flex flex-col md:flex-row-reverse items-center justify-center gap-10">
       </div>
-
       {/* Innhold under knappene */}
       <div className="max-w-xl text-center mt-10">
         <h1 className="text-4xl font-bold mb-4">Trymivers</h1>
