@@ -57,7 +57,7 @@ export default function Fictionlens() {
           ref={canvasRef}
           width={420}
           height={356}
-          className="absolute top-[100px] left-[110px]"
+          className="absolute top-[140px] left-[85px]"
         />
         <video ref={videoRef} autoPlay playsInline className="hidden" />
         <img
@@ -65,7 +65,7 @@ export default function Fictionlens() {
           alt="Digitalkamera-ramme"
           width={870}
           height={500}
-          className="absolute top-0 left-0 pointer-events-none"
+          className="absolute top-[-20px]left-0 pointer-events-none"
         />
       </div>
 
