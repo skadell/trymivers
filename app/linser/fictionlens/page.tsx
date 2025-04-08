@@ -49,7 +49,8 @@ export default function Fictionlens() {
     const dataUrl = canvas.toDataURL('image/png');
     setImageDataUrl(dataUrl);
 
-    // Spill av lyd senere: new Audio('/camera-shutter.wav').play();
+    // Spill av lyd senere:
+    // new Audio('/camera-shutter.wav').play();
   };
 
   return (
@@ -59,19 +60,16 @@ export default function Fictionlens() {
           ref={canvasRef}
           width={640}
           height={480}
-          className="absolute top-0 left-0 w-full h-full z-10 rounded"
-        />
-        <video
-          ref={videoRef}
-          autoPlay
-          playsInline
-          className="hidden"
+          className="absolute top-0 left-0 z-0 rounded"
         />
         <img
           src="/kamera.png"
-          alt="Digitalkamera-ramme"
-          className="absolute top-0 left-0 w-full h-full z-20 pointer-events-none"
+          alt="Kameraramme"
+          className="absolute top-0 left-0 z-10 pointer-events-none"
+          width={640}
+          height={480}
         />
+        <video ref={videoRef} autoPlay playsInline className="hidden" />
       </div>
 
       <button
