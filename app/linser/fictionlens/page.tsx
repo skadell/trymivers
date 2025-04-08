@@ -56,7 +56,7 @@ export default function Fictionlens() {
     <main className="min-h-screen bg-[#0033A0] text-white p-10 flex flex-col items-center">
       <h1 className="text-4xl font-bold mb-6">📸 Fictionlens</h1>
       <p className="mb-4 text-lg max-w-xl text-center">
-        Et interaktivt digitalkamera-filter. Ta et bilde og last det ned — med ekte 2000-talls-vibe.
+        Et interaktivt digitalkamera-filter fordi du ikke er noe pen uten. 
       </p>
 
       <div className="relative w-full max-w-md border-4 border-gray-300 rounded-xl bg-[#d4d4d4] shadow-lg">
