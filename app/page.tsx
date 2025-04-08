@@ -1,5 +1,26 @@
+'use client';
+import { useEffect, useState } from 'react';
 export default function Home() {
+  const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
+
+useEffect(() => {
+  const handleMouseMove = (e: MouseEvent) => {
+    setMousePos({ x: e.clientX, y: e.clientY });
+  };
+  window.addEventListener('mousemove', handleMouseMove);
+  return () => window.removeEventListener('mousemove', handleMouseMove);
+}, []);
 return (
+  <img
+  src="/trymivers_helkropp_transparent.png"
+  alt="Trymivers-avatar"
+  className="fixed w-32 h-auto pointer-events-none transition-transform duration-75 z-50"
+  style={{
+    left: mousePos.x,
+    top: mousePos.y,
+    transform: 'translate(-50%, -50%)',
+  }}
+/>
   <main className="min-h-screen bg-[#0033A0] text-white p-10 flex flex-col md:flex-row items-center justify-center gap-10">
     <img 
       src="/fanzine-v-2.png" 
