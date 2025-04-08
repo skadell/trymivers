@@ -50,13 +50,14 @@ export default function Fictionlens() {
   };
 
   return (
-    <main className="min-h-screen bg-[#0033A0] text-white p-10 flex flex-col items-center">
-      <div className="relative" style={{ width: '870px', height: '500px', marginTop: '-256px' }}>
+    <main className="min-h-screen bg-[#0033A0] text-white p-10 flex flex-col items-center justify-end">
+      <div className="relative" style={{ width: 870, height: 500, marginBottom: '3rem' }}>
         <canvas
           ref={canvasRef}
           width={494}
           height={356}
-          className="absolute top-[66px] left-[74px] z-10 rounded-md"
+          className="absolute"
+          style={{ top: 71, left: 68 }}
         />
         <video ref={videoRef} autoPlay playsInline className="hidden" />
         <img
@@ -64,13 +65,13 @@ export default function Fictionlens() {
           alt="Digitalkamera-ramme"
           width={870}
           height={500}
-          className="absolute top-0 left-0 z-20 pointer-events-none"
+          className="absolute top-0 left-0 z-10 pointer-events-none"
         />
       </div>
 
       <button
         onClick={takeSnapshot}
-        className="mt-8 px-6 py-3 bg-white text-[#0033A0] font-semibold rounded-full shadow hover:bg-gray-200 transition"
+        className="mb-6 px-6 py-3 bg-white text-[#0033A0] font-semibold rounded-full shadow hover:bg-gray-200 transition"
       >
         Ta bilde
       </button>
@@ -79,7 +80,7 @@ export default function Fictionlens() {
         <a
           href={imageDataUrl}
           download="fictionlens-bilde.png"
-          className="mt-4 underline text-sm hover:text-gray-300"
+          className="mb-10 underline text-sm hover:text-gray-300"
         >
           Last ned bilde
         </a>
