@@ -1,3 +1,4 @@
+import Link from 'next/link';
 export default function MusikkPage() {
   return (
     <main className="min-h-screen bg-[#0033A0] text-white p-10">
