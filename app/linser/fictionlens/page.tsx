@@ -23,12 +23,9 @@ export default function Fictionlens() {
           const draw = () => {
             if (videoRef.current && canvas && context) {
               context.drawImage(videoRef.current, 0, 0, canvas.width, canvas.height);
-
-              // UI-overlay: tekst, dato osv.
               context.font = '16px monospace';
               context.fillStyle = '#FFCC00';
               context.fillText('11.02.2000', 10, canvas.height - 10);
-
               context.fillStyle = '#00FF00';
               context.fillText('PLAY', 10, 20);
               context.fillText('BATTERY ▓▓▓', canvas.width - 100, 20);
@@ -53,37 +50,23 @@ export default function Fictionlens() {
 
   return (
     <main className="min-h-screen bg-[#0033A0] text-white p-10 flex flex-col items-center">
-      <div
-        className="relative"
-        style={{
-          width: '870px',
-          height: '500px',
-        }}
-      >
-        {/* Videofeed */}
+      <div className="relative" style={{ width: 870, height: 500 }}>
         <canvas
           ref={canvasRef}
           width={494}
           height={356}
-          className="absolute"
-          style={{
-            top: '72px',
-            left: '64px',
-            width: '494px',
-            height: '356px',
-            borderRadius: '4px',
-          }}
+          className="absolute top-[72px] left-[74px] z-10"
         />
 
-        {/* Kamera-overlegg */}
+        <video ref={videoRef} autoPlay playsInline className="hidden" />
+
         <img
           src="/kamera.png"
           alt="Digitalkamera-ramme"
-          className="absolute top-0 left-0 w-full h-full pointer-events-none"
+          width={870}
+          height={500}
+          className="absolute top-0 left-0 z-20 pointer-events-none"
         />
-
-        {/* Skjult videoelement */}
-        <video ref={videoRef} autoPlay playsInline className="hidden" />
       </div>
 
       <button
