@@ -2,7 +2,7 @@ import Link from 'next/link';
 
 export default function Home() {
   return (
-    <main className="min-h-screen bg-[#0033A0] text-white p-10 flex flex-col items-center gap-10">
+<main className="min-h-screen bg-[#0033A0] text-white p-10 flex flex-col md:flex-row-reverse items-center justify-center gap-10">
       {/* Knappene ligger nå øverst */}
       <div className="flex flex-wrap justify-center gap-4">
         <Link href="/Musikk">
