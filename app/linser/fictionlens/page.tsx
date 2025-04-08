@@ -24,10 +24,11 @@ export default function Fictionlens() {
             if (videoRef.current && canvas && context) {
               context.drawImage(videoRef.current, 0, 0, canvas.width, canvas.height);
 
-              // UI-tekst og datostempel
+              // UI-overlay: tekst, dato osv.
               context.font = '16px monospace';
               context.fillStyle = '#FFCC00';
               context.fillText('11.02.2000', 10, canvas.height - 10);
+
               context.fillStyle = '#00FF00';
               context.fillText('PLAY', 10, 20);
               context.fillText('BATTERY ▓▓▓', canvas.width - 100, 20);
@@ -48,28 +49,41 @@ export default function Fictionlens() {
     if (!canvas) return;
     const dataUrl = canvas.toDataURL('image/png');
     setImageDataUrl(dataUrl);
-
-    // Spill av lyd senere: new Audio('/camera-shutter.wav').play();
   };
 
   return (
     <main className="min-h-screen bg-[#0033A0] text-white p-10 flex flex-col items-center">
       <div
         className="relative"
-        style={{ width: 870, height: 500 }}
+        style={{
+          width: '870px',
+          height: '500px',
+        }}
       >
+        {/* Videofeed */}
         <canvas
           ref={canvasRef}
           width={494}
           height={356}
-          className="absolute top-[72px] left-[52px] z-10 rounded"
+          className="absolute"
+          style={{
+            top: '72px',
+            left: '64px',
+            width: '494px',
+            height: '356px',
+            borderRadius: '4px',
+          }}
         />
-        <video ref={videoRef} autoPlay playsInline className="hidden" />
+
+        {/* Kamera-overlegg */}
         <img
           src="/kamera.png"
           alt="Digitalkamera-ramme"
-          className="absolute top-0 left-0 w-[870px] h-[500px] z-20 pointer-events-none"
+          className="absolute top-0 left-0 w-full h-full pointer-events-none"
         />
+
+        {/* Skjult videoelement */}
+        <video ref={videoRef} autoPlay playsInline className="hidden" />
       </div>
 
       <button
