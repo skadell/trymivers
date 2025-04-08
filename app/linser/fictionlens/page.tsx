@@ -51,39 +51,43 @@ export default function Fictionlens() {
   };
 
   return (
-    <main className="min-h-screen bg-[#0033A0] text-white p-10 flex flex-col items-center">
-      <div className="relative w-[494px] h-[356px]">
+    <main className="min-h-screen bg-[#0033A0] text-white p-0 m-0 relative overflow-hidden">
+      <div className="absolute" style={{ width: 870, height: 500, top: 193, left: 352 }}>
         <canvas
           ref={canvasRef}
           width={494}
           height={356}
-          className="absolute top-0 left-0 rounded"
+          className="absolute top-[72px] left-[78px]"
         />
         <video ref={videoRef} autoPlay playsInline className="hidden" />
         <img
           src="/kamera.png"
           alt="Digitalkamera-ramme"
-          className="absolute top-[160px] left-[310px] pointer-events-none"
           width={870}
           height={500}
+          className="absolute top-0 left-0 pointer-events-none"
         />
       </div>
 
-      <button
-        onClick={takeSnapshot}
-        className="mt-16 px-6 py-3 bg-white text-[#0033A0] font-semibold rounded-full shadow hover:bg-gray-200 transition"
-      >
-        Ta bilde
-      </button>
+      <div className="absolute bottom-10 w-full flex justify-center">
+        <button
+          onClick={takeSnapshot}
+          className="px-6 py-3 bg-white text-[#0033A0] font-semibold rounded-full shadow hover:bg-gray-200 transition"
+        >
+          Ta bilde
+        </button>
+      </div>
 
       {imageDataUrl && (
-        <a
-          href={imageDataUrl}
-          download="fictionlens-bilde.png"
-          className="mt-4 underline text-sm hover:text-gray-300"
-        >
-          Last ned bilde
-        </a>
+        <div className="absolute bottom-2 w-full flex justify-center">
+          <a
+            href={imageDataUrl}
+            download="fictionlens-bilde.png"
+            className="underline text-sm hover:text-gray-300"
+          >
+            Last ned bilde
+          </a>
+        </div>
       )}
     </main>
   );
