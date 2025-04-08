@@ -28,7 +28,7 @@ export default function Fictionlens() {
               context.fillText('11.02.2000', 10, canvas.height - 10);
               context.fillStyle = '#00FF00';
               context.fillText('PLAY', 10, 20);
-              context.fillText('BATTERY ███', canvas.width - 100, 20);
+              context.fillText('BATTERY ▓▓▓', canvas.width - 100, 20);
             }
             requestAnimationFrame(draw);
           };
@@ -50,18 +50,25 @@ export default function Fictionlens() {
 
   return (
     <main className="min-h-screen bg-[#0033A0] text-white p-10 flex flex-col items-center">
-      <div className="relative w-[340px] h-[260px] sm:w-[400px] sm:h-[310px]">
+      <div className="relative w-[640px] h-[480px]">
         <canvas
           ref={canvasRef}
-          width={320}
-          height={240}
-          className="absolute top-[36px] left-[36px] w-[215px] h-[160px] rounded"
+          width={640}
+          height={480}
+          className="absolute top-0 left-0 w-full h-full z-10 rounded"
         />
-        <video ref={videoRef} autoPlay playsInline className="hidden" />
+
+        <video
+          ref={videoRef}
+          autoPlay
+          playsInline
+          className="hidden"
+        />
+
         <img
           src="/kamera.png"
           alt="Digitalkamera-ramme"
-          className="absolute top-0 left-0 w-full h-full pointer-events-none select-none"
+          className="absolute top-0 left-0 w-full h-full z-20 pointer-events-none"
         />
       </div>
 
