@@ -52,10 +52,10 @@ export default function Fictionlens() {
 
   return (
     <main className="min-h-screen bg-[#0033A0] text-white p-0 m-0 relative overflow-hidden">
-      <div className="absolute" style={{ width: 870, height: 500, top: 180, left: 352 }}>
+      <div className="absolute" style={{ width: 870, height: 500, top: 50, left: 352 }}>
         <canvas
           ref={canvasRef}
-          width={494}
+          width={400}
           height={356}
           className="absolute top-[72px] left-[78px]"
         />
