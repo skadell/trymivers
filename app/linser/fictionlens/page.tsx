@@ -3,6 +3,7 @@
 import { useEffect, useRef } from 'react';
 
 export default function Fictionlens() {
+  const canvasRef = useRef<HTMLCanvasElement>(null);
   const videoRef = useRef<HTMLVideoElement>(null);
 
   useEffect(() => {
@@ -13,10 +14,25 @@ export default function Fictionlens() {
           if (videoRef.current) {
             videoRef.current.srcObject = stream;
           }
-        })
-        .catch((err) => {
-          console.error('Kamera-feil:', err);
-        });
+          const canvas = canvasRef.current;
+const context = canvas?.getContext('2d');
+
+const draw = () => {
+  if (videoRef.current && context && canvas) {
+    context.drawImage(videoRef.current, 0, 0, canvas.width, canvas.height);
+
+    context.font = '16px monospace';
+    context.fillStyle = '#FFCC00';
+    context.fillText('11.02.2000', 10, canvas.height - 10);
+  }
+  requestAnimationFrame(draw);
+};
+<canvas
+  ref={canvasRef}
+  width={640}
+  height={480}
+  className="w-full max-w-md mt-8 rounded-lg shadow-xl border-4 border-white"
+/>
     }
   }, []);
 
