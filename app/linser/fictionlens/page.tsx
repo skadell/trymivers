@@ -24,7 +24,6 @@ export default function Fictionlens() {
             if (videoRef.current && canvas && context) {
               context.drawImage(videoRef.current, 0, 0, canvas.width, canvas.height);
 
-              // UI-tekst og datostempel
               context.font = '16px monospace';
               context.fillStyle = '#FFCC00';
               context.fillText('11.02.2000', 10, canvas.height - 10);
@@ -48,30 +47,30 @@ export default function Fictionlens() {
     if (!canvas) return;
     const dataUrl = canvas.toDataURL('image/png');
     setImageDataUrl(dataUrl);
-
-    // Spill av lyd senere: new Audio('/camera-shutter.wav').play();
   };
 
   return (
     <main className="min-h-screen bg-[#0033A0] text-white p-10 flex flex-col items-center">
-      <div className="relative w-[870px] h-[500px]">
+      <div className="relative" style={{ width: '870px', height: '500px', marginTop: '-256px' }}>
         <canvas
           ref={canvasRef}
           width={494}
           height={356}
-          className="absolute top-[72px] left-[73px] rounded-md"
+          className="absolute top-[66px] left-[74px] z-10 rounded-md"
         />
         <video ref={videoRef} autoPlay playsInline className="hidden" />
         <img
           src="/kamera.png"
           alt="Digitalkamera-ramme"
-          className="absolute top-0 left-0 w-full h-full pointer-events-none"
+          width={870}
+          height={500}
+          className="absolute top-0 left-0 z-20 pointer-events-none"
         />
       </div>
 
       <button
         onClick={takeSnapshot}
-        className="mt-6 px-6 py-3 bg-white text-[#0033A0] font-semibold rounded-full shadow hover:bg-gray-200 transition"
+        className="mt-8 px-6 py-3 bg-white text-[#0033A0] font-semibold rounded-full shadow hover:bg-gray-200 transition"
       >
         Ta bilde
       </button>
