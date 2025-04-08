@@ -54,24 +54,24 @@ export default function Fictionlens() {
 
   return (
     <main className="min-h-screen bg-[#0033A0] text-white p-10 flex flex-col items-center">
-      <h1 className="text-4xl font-bold mb-6">Digitalkamera</h1>
-      <p className="mb-4 text-lg max-w-xl text-center">
-        Et interaktivt digitalkamera-filter fordi du ikke er noe pen uten. 
-      </p>
-
-      <div className="relative w-full max-w-md border-4 border-gray-300 rounded-xl bg-[#d4d4d4] shadow-lg">
+      <div className="relative w-[640px] h-[480px]">
         <canvas
           ref={canvasRef}
           width={640}
           height={480}
-          className="w-full h-auto rounded-xl"
+          className="absolute top-0 left-0 w-full h-full z-10 rounded"
         />
-        <video ref={videoRef} autoPlay playsInline className="hidden" />
-
-        {/* Fake logo */}
-        <div className="absolute top-2 left-1/2 transform -translate-x-1/2 text-xs text-black font-semibold tracking-wide">
-          Trymix DC3000
-        </div>
+        <video
+          ref={videoRef}
+          autoPlay
+          playsInline
+          className="hidden"
+        />
+        <img
+          src="/kamera.png"
+          alt="Digitalkamera-ramme"
+          className="absolute top-0 left-0 w-full h-full z-20 pointer-events-none"
+        />
       </div>
 
       <button
@@ -92,4 +92,4 @@ export default function Fictionlens() {
       )}
     </main>
   );
-} 
+}
