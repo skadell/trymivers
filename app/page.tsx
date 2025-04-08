@@ -15,7 +15,7 @@ export default function Home() {
           Du trenger ikke forstå alt. Bare føl deg frem.
         </p><Link href="/Musikk">
   <button className="mt-6 px-6 py-3 bg-white text-[#0033A0] font-semibold rounded-full hover:bg-gray-200 transition">
-    Utforsk musikk
+    Musikk
   </button>
 </Link>
       </div>
