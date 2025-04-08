@@ -24,6 +24,7 @@ export default function Fictionlens() {
             if (videoRef.current && canvas && context) {
               context.drawImage(videoRef.current, 0, 0, canvas.width, canvas.height);
 
+              // UI-tekst og datostempel
               context.font = '16px monospace';
               context.fillStyle = '#FFCC00';
               context.fillText('11.02.2000', 10, canvas.height - 10);
@@ -50,28 +51,27 @@ export default function Fictionlens() {
   };
 
   return (
-    <main className="min-h-screen bg-[#0033A0] text-white p-10 flex flex-col items-center justify-end">
-      <div className="relative" style={{ width: 870, height: 500, marginBottom: '3rem' }}>
+    <main className="min-h-screen bg-[#0033A0] text-white p-10 flex flex-col items-center">
+      <div className="relative w-[494px] h-[356px]">
         <canvas
           ref={canvasRef}
           width={494}
           height={356}
-          className="absolute"
-          style={{ top: 71, left: 68 }}
+          className="absolute top-0 left-0 rounded"
         />
         <video ref={videoRef} autoPlay playsInline className="hidden" />
         <img
           src="/kamera.png"
           alt="Digitalkamera-ramme"
+          className="absolute top-[193px] left-[352px] pointer-events-none"
           width={870}
           height={500}
-          className="absolute top-0 left-0 z-10 pointer-events-none"
         />
       </div>
 
       <button
         onClick={takeSnapshot}
-        className="mb-6 px-6 py-3 bg-white text-[#0033A0] font-semibold rounded-full shadow hover:bg-gray-200 transition"
+        className="mt-12 px-6 py-3 bg-white text-[#0033A0] font-semibold rounded-full shadow hover:bg-gray-200 transition"
       >
         Ta bilde
       </button>
@@ -80,7 +80,7 @@ export default function Fictionlens() {
         <a
           href={imageDataUrl}
           download="fictionlens-bilde.png"
-          className="mb-10 underline text-sm hover:text-gray-300"
+          className="mt-4 underline text-sm hover:text-gray-300"
         >
           Last ned bilde
         </a>
