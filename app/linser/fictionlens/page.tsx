@@ -54,7 +54,7 @@ export default function Fictionlens() {
 
   return (
     <main className="min-h-screen bg-[#0033A0] text-white p-10 flex flex-col items-center">
-      <h1 className="text-4xl font-bold mb-6">📸 Fictionlens</h1>
+      <h1 className="text-4xl font-bold mb-6">Digitalkamera</h1>
       <p className="mb-4 text-lg max-w-xl text-center">
         Et interaktivt digitalkamera-filter fordi du ikke er noe pen uten. 
       </p>
