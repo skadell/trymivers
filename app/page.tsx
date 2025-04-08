@@ -25,7 +25,7 @@ export default function Home() {
 </Link>
         <Link href="/tekst">
   <button className="mt-4 px-6 py-3 bg-white text-[#0033A0] font-semibold rounded-full hover:bg-gray-200 transition">
-    Utforsk tekst
+    Tekst
   </button>
 </Link>
       </div>
