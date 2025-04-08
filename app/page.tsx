@@ -28,7 +28,7 @@ export default function Home() {
       </div>
 
       {/* Hovedinnhold */}
-      <main className="min-h-screen bg-[#0033A0] text-white p-10 flex flex-col md:flex-row-reverse items-center justify-center gap-10">
+      <main className="min-h-screen bg-[#0033A0] text-white p-10 flex flex-col md:flex-row items-center justify-center gap-10">
         <img
           src="/fanzine-v-2.png"
           alt="Trym"
