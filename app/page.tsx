@@ -18,6 +18,11 @@ export default function Home() {
     Musikk
   </button>
 </Link>
+        <Link href="/linser">
+  <button className="mt-4 px-6 py-3 bg-white text-[#0033A0] font-semibold rounded-full hover:bg-gray-200 transition">
+    Utforsk linser
+  </button>
+</Link>
       </div>
     </main>
   );
