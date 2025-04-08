@@ -1,3 +1,4 @@
+import Link from 'next/link';
 export default function Home() {
   return (
     <main className="min-h-screen bg-[#0033A0] text-white p-10 flex flex-col md:flex-row items-center justify-center gap-10">
@@ -12,7 +13,11 @@ export default function Home() {
  Et levende arkiv av impulser, uttrykk og digitale drypp fra under overflaten.  
           Her finner du fragmenter av lyd, tekst, bilder og idéer – alt filtrert gjennom ett og samme blikk.  
           Du trenger ikke forstå alt. Bare føl deg frem.
-        </p>
+        </p><Link href="/musikk">
+  <button className="mt-6 px-6 py-3 bg-white text-[#0033A0] font-semibold rounded-full hover:bg-gray-200 transition">
+    Utforsk musikk
+  </button>
+</Link>
       </div>
     </main>
   );
