@@ -32,7 +32,7 @@ export default function Home() {
         <img
           src="/fanzine-v-2.png"
           alt="Trym"
-          className="w-64 rounded-lg shadow-lg relative -top-50 -left-50"        />
+          className="w-64 rounded-lg shadow-lg relative -top-40 -left-35"        />
         <div>
           <h1 className="text-4xl font-bold mb-4">Velkommen til Trymivers</h1>
           <p className="text-lg max-w-md">
