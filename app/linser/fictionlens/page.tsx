@@ -53,9 +53,6 @@ export default function Fictionlens() {
 
   return (
     <main className="min-h-screen bg-[#0033A0] text-white p-0 m-0 relative overflow-hidden">
-      <Link href="/linser">
-  <button className="text-white text-lg mb-6 hover:underline self-start">← Tilbake</button>
-</Link>
       <div className="absolute" style={{ width: 870, height: 500, top: 0, left: 352 }}>
         <canvas
           ref={canvasRef}
