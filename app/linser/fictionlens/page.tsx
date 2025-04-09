@@ -1,6 +1,6 @@
 'use client';
-import Link from 'next/link';
 
+import Link from 'next/link';
 import { useEffect, useRef, useState } from 'react';
 
 export default function Fictionlens() {
@@ -54,26 +54,35 @@ export default function Fictionlens() {
   return (
     <main className="min-h-screen bg-[#0033A0] text-white p-0 m-0 relative overflow-hidden">
       <Link href="/linser">
-  <button className="text-white text-lg mb-6 hover:underline absolute top-4 left-4 z-10">← Tilbake</button>
-</Link>
-      <div className="absolute" style={{ width: 870, height: 500, top: 0, left: 352 }}>
+        <button className="text-white text-lg mb-6 hover:underline absolute top-4 left-4 z-10">
+          ← Tilbake
+        </button>
+      </Link>
+
+      {/* Wrapper som skaleres etter skjermstørrelse */}
+      <div className="relative w-full max-w-[870px] aspect-[870/500] mx-auto">
+        {/* Webkamera-bildet */}
         <canvas
           ref={canvasRef}
-          width={420}
-          height={300}
-          className="absolute top-[275px] left-[127px]"
+          className="absolute top-[27%] left-[14.5%]"
+          width={494}
+          height={356}
+          style={{ width: '71.5%', height: '62%' }}
         />
+
+        {/* Skjult video */}
         <video ref={videoRef} autoPlay playsInline className="hidden" />
+
+        {/* Digitalkameraramme */}
         <img
           src="/kamera.png"
           alt="Digitalkamera-ramme"
-          width={870}
-          height={500}
-          className="absolute top-[-60px]left-0 pointer-events-none"
+          className="absolute top-0 left-0 w-full h-full pointer-events-none"
         />
       </div>
 
-      <div className="absolute bottom-10 w-full flex justify-center">
+      {/* Ta bilde-knapp */}
+      <div className="mt-10 flex justify-center">
         <button
           onClick={takeSnapshot}
           className="px-6 py-3 bg-white text-[#0033A0] font-semibold rounded-full shadow hover:bg-gray-200 transition"
@@ -82,8 +91,9 @@ export default function Fictionlens() {
         </button>
       </div>
 
+      {/* Last ned-lenke */}
       {imageDataUrl && (
-        <div className="absolute bottom-2 w-full flex justify-center">
+        <div className="mt-4 flex justify-center">
           <a
             href={imageDataUrl}
             download="fictionlens-bilde.png"
