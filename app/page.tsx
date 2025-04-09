@@ -1,7 +1,14 @@
+import FloatingOrb from './components/FloatingOrb';
 import Link from 'next/link';
 
 export default function Home() {
   return (
+    return (
+  <>
+    <FloatingOrb />
+    
+    {/* Navigasjonsknapper */}
+    <div className="flex flex-wrap justify-center gap-4 p-6 bg-[#0033A0]">
     <>
       {/* Navigasjonsknapper */}
       <div className="flex flex-wrap justify-center gap-4 p-6 bg-[#0033A0]">
