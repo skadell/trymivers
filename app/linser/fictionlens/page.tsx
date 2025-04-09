@@ -54,29 +54,25 @@ export default function Fictionlens() {
   return (
     <main className="min-h-screen bg-[#0033A0] text-white p-0 m-0 relative overflow-hidden">
       <Link href="/linser">
-        <button className="text-white text-lg mb-6 hover:underline absolute top-4 left-4 z-10">
-          ← Tilbake
-        </button>
+        <button className="text-white text-lg mb-6 hover:underline absolute top-4 left-4 z-10">← Tilbake</button>
       </Link>
 
-      {/* Kamera + canvas wrapper */}
-      <div className="relative w-full max-w-[870px] aspect-[870/500] mx-auto">
+      <div className="relative mx-auto mt-10 w-[870px] h-[500px] md:w-[870px] md:h-[500px]" style={{ maxWidth: '100%' }}>
         <canvas
           ref={canvasRef}
-          width={420}
-          height={300}
-          className="absolute top-[275px] left-[127px] w-[420px] h-[300px] md:top-[55%] md:left-[14.6%] md:w-[48.3%] md:h-[60%]"
+          width={494}
+          height={356}
+          className="absolute top-[138px] left-[127px] w-[494px] h-[356px] md:top-[275px] md:left-[127px] md:w-[494px] md:h-[356px]"
         />
         <video ref={videoRef} autoPlay playsInline className="hidden" />
         <img
           src="/kamera.png"
           alt="Digitalkamera-ramme"
-          className="absolute top-0 left-0 w-full h-full pointer-events-none"
+          className="absolute top-0 left-0 w-full h-auto pointer-events-none"
         />
       </div>
 
-      {/* Ta bilde-knapp */}
-      <div className="mt-10 flex justify-center">
+      <div className="mt-6 md:mt-12 w-full flex justify-center">
         <button
           onClick={takeSnapshot}
           className="px-6 py-3 bg-white text-[#0033A0] font-semibold rounded-full shadow hover:bg-gray-200 transition"
@@ -85,9 +81,8 @@ export default function Fictionlens() {
         </button>
       </div>
 
-      {/* Last ned-lenke */}
       {imageDataUrl && (
-        <div className="mt-4 flex justify-center">
+        <div className="absolute bottom-2 w-full flex justify-center">
           <a
             href={imageDataUrl}
             download="fictionlens-bilde.png"
