@@ -11,6 +11,15 @@ export default function LinserPage() {
         Her samler jeg inntrykk, testbilder og anbefalinger fra kameralinsenens verden. <br />
         Et sted for nerderi og optisk kjærlighet.
       </p>
+      <Link href="/linser/fictionlens">
+  <img
+    src="/linseknapp.png"
+    alt="Fictionlens"
+    width={100}
+    height={100}
+    className="hover:scale-105 transition-transform ml-2 mt-6"
+  />
+</Link>
     </main>
   );
 }
