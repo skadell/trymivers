@@ -59,21 +59,22 @@ export default function Fictionlens() {
         </button>
       </Link>
 
-      {/* Wrapper som skaleres etter skjermstørrelse */}
+      {/* Kamera + canvas wrapper */}
       <div className="relative w-full max-w-[870px] aspect-[870/500] mx-auto">
-        {/* Webkamera-bildet */}
         <canvas
           ref={canvasRef}
-          className="absolute top-[27%] left-[14.5%]"
-          width={494}
-          height={356}
-          style={{ width: '71.5%', height: '62%' }}
+          width={420}
+          height={300}
+          className="absolute"
+          style={{
+            top: '55%',
+            left: '14.6%',
+            width: '48.3%',
+            height: '60%',
+            position: 'absolute',
+          }}
         />
-
-        {/* Skjult video */}
         <video ref={videoRef} autoPlay playsInline className="hidden" />
-
-        {/* Digitalkameraramme */}
         <img
           src="/kamera.png"
           alt="Digitalkamera-ramme"
