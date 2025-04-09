@@ -57,7 +57,7 @@ export default function Fictionlens() {
           ref={canvasRef}
           width={420}
           height={356}
-          className="absolute top-[220px] left-[25px]"
+          className="absolute top-[235px] left-[25px]"
         />
         <video ref={videoRef} autoPlay playsInline className="hidden" />
         <img
