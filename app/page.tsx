@@ -37,8 +37,8 @@ export default function Home() {
         <div className="relative -top-40">
           <h1 className="text-4xl font-bold mb-4">Velkommen til Trymivers</h1>
           <p className="text-lg max-w-md">
-            Utforsk mine kreative prosjekter innen musikk, tekst, bilder og mer.
-            Dette er et personlig univers – et zine – kuratert og bygget med kjærlighet.
+            Et kreativt digitalt roterom, et fanzine, dedikert til alt kult. Ikke noe for en hver smak, men alt etter min smak.
+            Du trenger ikke forstå alt, bare føl det. Ingen ytterligere forklaring vil bli gitt. 
           </p>
         </div>
       </main>
