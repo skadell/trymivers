@@ -9,33 +9,30 @@ export default function FloatingOrb() {
     const orb = orbRef.current;
     if (!orb) return;
 
-    let angle = 0;
-    const centerX = window.innerWidth / 2 - 80;
-    const centerY = window.innerHeight / 2 - 80;
-    const radius = 200; // ← Her er radius nå definert!
+    const moveOrb = () => {
+      const screenWidth = window.innerWidth;
+      const screenHeight = window.innerHeight;
+      const orbSize = 100; // Samme som i stil
 
-    const animate = () => {
-      angle += 0.01;
-      const x = centerX + radius * Math.cos(angle);
-      const y = centerY + radius * Math.sin(angle);
+      const x = Math.random() * (screenWidth - orbSize);
+      const y = Math.random() * (screenHeight - orbSize);
+
       orb.style.transform = `translate(${x}px, ${y}px)`;
-      requestAnimationFrame(animate);
     };
 
-    requestAnimationFrame(animate);
+    const interval = setInterval(moveOrb, 3000); // Flytt hvert 3. sekund
+    moveOrb(); // Start med en gang
+
+    return () => clearInterval(interval);
   }, []);
 
   return (
     <div
       ref={orbRef}
-      className="fixed top-0 left-0 w-40 h-40 z-10"
+      className="w-[100px] h-[100px] bg-[url('/orb.png')] bg-cover bg-no-repeat rounded-full absolute pointer-events-none"
       style={{
-        backgroundImage: "url('/orb.png')",
-        backgroundSize: 'cover',
-        filter: 'drop-shadow(0 0 12px #fff)',
-        opacity: 1,
-        pointerEvents: 'none',
+        transition: 'transform 2s ease-in-out'
       }}
-    />
+    ></div>
   );
 }
