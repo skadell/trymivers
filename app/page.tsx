@@ -1,3 +1,4 @@
+import FloatingOrb from './components/FloatingOrb';
 import Link from 'next/link';
 
 export default function Home() {
@@ -29,6 +30,8 @@ export default function Home() {
 
       {/* Hovedinnhold */}
       <main className="min-h-screen bg-[#0033A0] text-white p-10 flex flex-col md:flex-row items-center justify-center gap-10">
+    <FloatingOrb />
+    {/* resten av innholdet */}
         <img
           src="/fanzine-v-2.png"
           alt="Trym"
