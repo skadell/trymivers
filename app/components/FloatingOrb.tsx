@@ -9,30 +9,40 @@ export default function FloatingOrb() {
     const orb = orbRef.current;
     if (!orb) return;
 
+    // Startposisjon midt på skjermen
+    orb.style.transform = 'translate(0px, 0px)';
+
     const moveOrb = () => {
       const screenWidth = window.innerWidth;
       const screenHeight = window.innerHeight;
-      const orbSize = 100; // Samme som i stil
 
-      const x = Math.random() * (screenWidth - orbSize);
-      const y = Math.random() * (screenHeight - orbSize);
+      // Begrenset område for bevegelse slik at den ikke forsvinner
+      const maxX = screenWidth / 2 - 100;
+      const maxY = screenHeight / 2 - 100;
+      const minX = -screenWidth / 2 + 100;
+      const minY = -screenHeight / 2 + 100;
 
-      orb.style.transform = `translate(${x}px, ${y}px)`;
+      const randomX = Math.floor(Math.random() * (maxX - minX) + minX);
+      const randomY = Math.floor(Math.random() * (maxY - minY) + minY);
+
+      orb.style.transition = 'transform 4s ease-in-out';
+      orb.style.transform = `translate(${randomX}px, ${randomY}px)`;
     };
 
-    const interval = setInterval(moveOrb, 3000); // Flytt hvert 3. sekund
-    moveOrb(); // Start med en gang
-
+    const interval = setInterval(moveOrb, 4000);
     return () => clearInterval(interval);
   }, []);
 
   return (
     <div
       ref={orbRef}
-      className="w-[100px] h-[100px] bg-[url('/orb.png')] bg-cover bg-no-repeat rounded-full absolute pointer-events-none"
+      className="fixed top-1/2 left-1/2 w-[160px] h-[160px] rounded-full z-10 pointer-events-none"
       style={{
-        transition: 'transform 2s ease-in-out'
+        transform: 'translate(-50%, -50%)',
+        backgroundImage: 'url(/orb.png)',
+        backgroundSize: 'cover',
+        filter: 'drop-shadow(0 0 12px rgba(255,255,255,0.6))'
       }}
-    ></div>
+    />
   );
 }
