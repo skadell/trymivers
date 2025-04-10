@@ -3,16 +3,17 @@
 import { useEffect, useRef } from 'react';
 
 export default function FloatingOrb() {
-  const orbRef = useRef<HTMLImageElement>(null);
+  const orbRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-     const orb = orbRef.current;
+    const orb = orbRef.current;
     if (!orb) return;
-    
+
     let angle = 0;
-    const centerX = window.innerWidth / 2;
-    const centerY = window.innerHeight / 2;    
-    
+    const centerX = window.innerWidth / 2 - 80;
+    const centerY = window.innerHeight / 2 - 80;
+    const radius = 200; // ← Her er radius nå definert!
+
     const animate = () => {
       angle += 0.01;
       const x = centerX + radius * Math.cos(angle);
@@ -21,26 +22,19 @@ export default function FloatingOrb() {
       requestAnimationFrame(animate);
     };
 
-    animate();
+    requestAnimationFrame(animate);
   }, []);
 
   return (
     <div
       ref={orbRef}
+      className="fixed top-0 left-0 w-40 h-40 z-10"
       style={{
-        position: 'fixed',
-        top: 0,
-        left: 0,
-        width: '160px',        // Økt fra 100px
-        height: '160px',       // Økt fra 100px
-        borderRadius: '50%',
-        backgroundImage: 'url(/orb.png)',
+        backgroundImage: "url('/orb.png')",
         backgroundSize: 'cover',
-        backgroundRepeat: 'no-repeat',
-        opacity: 1,            // Full opasitet
-        zIndex: 10,
+        filter: 'drop-shadow(0 0 12px #fff)',
+        opacity: 1,
         pointerEvents: 'none',
-        filter: 'drop-shadow(0 0 20px rgba(0, 174, 255, 0.7))'
       }}
     />
   );
