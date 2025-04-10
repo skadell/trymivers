@@ -34,7 +34,7 @@ export default function Home() {
           alt="Trym"
           className="w-64 rounded-lg shadow-lg relative -top-30 -left-20"        />
         
-        <div classmate="relative -top-40">
+        <div className="relative -top-40">
           <h1 className="text-4xl font-bold mb-4">Velkommen til Trymivers</h1>
           <p className="text-lg max-w-md">
             Utforsk mine kreative prosjekter innen musikk, tekst, bilder og mer.
