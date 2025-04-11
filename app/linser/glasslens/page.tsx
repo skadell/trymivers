@@ -1,3 +1,4 @@
+import Link from 'next/link';
 'use client';
 
 import { useRef, useEffect, useState } from 'react';
