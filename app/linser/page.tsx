@@ -9,8 +9,7 @@ export default function LinserPage() {
 
       <h1 className="text-4xl font-bold mb-6">Linser</h1>
       <p className="text-lg leading-relaxed mb-10">
-        Her samler jeg inntrykk, testbilder og anbefalinger fra kameralinsenens verden. <br />
-        Et sted for nerderi og optisk kjærlighet.
+        Her er et fotostudio bestående av ulike linser designet for å utforske et spekter av uttrykk i video- og bildeformat.
       </p>
 
       {/* Knappene ved siden av hverandre */}
