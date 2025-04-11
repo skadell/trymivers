@@ -44,7 +44,7 @@ const y = row * (tileHeight + gapY);
   }, []);
 
   return (
-   <main className="min-h-screen bg-gradient-to-br from-[#f2f2f2] via-[#a6a6a6] to-[#4d4d4d]">
+ <main className="min-h-screen bg-gradient-to-br from-[#e6e6e6] via-[#c0c0c0] to-[#a0a0a0] flex items-center justify-center">
       <div>
         <canvas ref={canvasRef} width={width} height={height} className="rounded-xl" />
         <video ref={videoRef} className="hidden" />
