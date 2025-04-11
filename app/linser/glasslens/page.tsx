@@ -23,8 +23,8 @@ export default function Glasslens() {
       const draw = () => {
         const tileCount = 10;
         const gap = 1;
-        const tileWidth = (width - (tileCount - 1) * gap) / tileCount;
-        const tileHeight = (height - (tileCount - 1) * gap) / tileCount;
+        const tileWidth = (width - (tileCount - 0.5) * gap) / tileCount;
+        const tileHeight = (height - (tileCount - 0.5) * gap) / tileCount;
 
         for (let row = 0; row < tileCount; row++) {
           for (let col = 0; col < tileCount; col++) {
