@@ -85,6 +85,12 @@ export default function Glasslens() {
         backgroundImage: "url('/glass-background.jpg')",
       }}
     >
+      {/* Tilbake-knapp */}
+    <Link href="/linser">
+      <button className="absolute top-6 left-6 px-4 py-2 bg-red-600 text-white rounded-full shadow hover:bg-red-700 transition z-50">
+        ← Tilbake
+      </button>
+    </Link>
       <div className="relative">
         <canvas ref={canvasRef} width={width} height={height} className="rounded-xl" />
         <video ref={videoRef} className="hidden" />
