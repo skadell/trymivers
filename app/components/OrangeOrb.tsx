@@ -9,18 +9,17 @@ export default function OrangeOrb() {
     const orb = orbRef.current;
     if (!orb) return;
 
-    let angleX = 0;
-    let angleY = 0;
+    let angle = 0;
 
     const animate = () => {
-      angleX += 0.008; // Juster for fart
-      angleY += 0.005;
+      angle += 0.01; // Juster farten på bevegelsen
 
-      const amplitudeX = window.innerWidth / 3;
-      const amplitudeY = window.innerHeight / 3;
+      const radius = 120; // Hvor stor sirkel den beveger seg i
+      const centerX = window.innerWidth / 2;
+      const centerY = window.innerHeight / 2;
 
-      const x = Math.sin(angleX) * amplitudeX + window.innerWidth / 2 - 64;
-      const y = Math.cos(angleY) * amplitudeY + window.innerHeight / 2 - 64;
+      const x = centerX + radius * Math.cos(angle) - 64; // 64 = halvparten av bredden
+      const y = centerY + radius * Math.sin(angle) - 64; // 64 = halvparten av høyden
 
       orb.style.transform = `translate(${x}px, ${y}px)`;
 
