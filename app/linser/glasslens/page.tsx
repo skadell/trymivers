@@ -21,7 +21,7 @@ export default function Glasslens() {
       video.play();
 
       const draw = () => {
-        const tileCount = 10;
+        const tileCount = 7;
         const gapX = 0.1; // mellomrom mellom kolonner (horisontal)
 const gapY = 1; // mindre mellomrom mellom rader (vertikal)
         const tileWidth = (width - (tileCount - 2) * gapX) / tileCount;
