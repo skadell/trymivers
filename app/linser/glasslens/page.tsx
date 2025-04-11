@@ -6,8 +6,8 @@ export default function Glasslens() {
   const videoRef = useRef<HTMLVideoElement>(null);
   const canvasRef = useRef<HTMLCanvasElement>(null);
 
-  const width = 500;
-  const height = 500;
+  const width = 700;
+  const height = 700;
 
   useEffect(() => {
     const canvas = canvasRef.current;
