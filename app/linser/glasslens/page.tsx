@@ -22,7 +22,7 @@ export default function Glasslens() {
 
       const draw = () => {
         const tileCount = 10;
-        const gapX = 1; // mellomrom mellom kolonner (horisontal)
+        const gapX = 0.1; // mellomrom mellom kolonner (horisontal)
 const gapY = 1; // mindre mellomrom mellom rader (vertikal)
         const tileWidth = (width - (tileCount - 0.5) * gapX) / tileCount;
 const tileHeight = (height - (tileCount - 0.5) * gapY) / tileCount;
