@@ -1,5 +1,5 @@
 import FloatingOrb from './components/FloatingOrb';
-import OrangeOrb from '../components/OrangeOrb';
+import OrangeOrb from './components/OrangeOrb';
 import Link from 'next/link';
 
 export default function Home() {
