@@ -35,7 +35,7 @@ export default function OrangeOrb() {
   return (
     <div
       ref={orbRef}
-      className="fixed top-[60%] left-[70%] w-[160px] h-[160px] rounded-full z-10 pointer-events-none"
+      className="fixed top-[60%] left-[70%] w-[160px] h-[160px] rounded-full z-20 pointer-events-none"
       style={{
         transform: 'translate(-50%, -50%)',
         backgroundImage: 'url(/oransje-orb.png)',
