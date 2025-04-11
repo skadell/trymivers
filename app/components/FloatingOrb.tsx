@@ -15,31 +15,32 @@ export default function OrangeOrb() {
       const screenWidth = window.innerWidth;
       const screenHeight = window.innerHeight;
 
-      const maxX = screenWidth / 2 - 100;
-      const maxY = screenHeight / 2 - 100;
-      const minX = -screenWidth / 2 + 100;
-      const minY = -screenHeight / 2 + 100;
+      // Juster området slik at den beveger seg i et annet mønster
+      const maxX = screenWidth / 2 - 80;
+      const maxY = screenHeight / 2 - 80;
+      const minX = -screenWidth / 2 + 80;
+      const minY = -screenHeight / 2 + 80;
 
-      const randomX = Math.floor(Math.random() * (maxX - minX) + minX);
-      const randomY = Math.floor(Math.random() * (maxY - minY) + minY);
+      const randomX = Math.floor(Math.random() * (maxX - minX) + minX + 40); //  +40 forskyvning
+      const randomY = Math.floor(Math.random() * (maxY - minY) + minY - 20); // -20 forskyvning
 
-      orb.style.transition = 'transform 4s ease-in-out';
+      orb.style.transition = 'transform 5.5s ease-in-out';
       orb.style.transform = `translate(${randomX}px, ${randomY}px)`;
     };
 
-    const interval = setInterval(moveOrb, 4000);
+    const interval = setInterval(moveOrb, 5500);
     return () => clearInterval(interval);
   }, []);
 
   return (
     <div
       ref={orbRef}
-      className="fixed top-1/2 left-1/2 w-[160px] h-[160px] rounded-full z-10 pointer-events-none"
+      className="fixed top-[60%] left-[70%] w-[160px] h-[160px] rounded-full z-10 pointer-events-none"
       style={{
         transform: 'translate(-50%, -50%)',
         backgroundImage: 'url(/oransje-orb.png)',
         backgroundSize: 'cover',
-        filter: 'drop-shadow(0 0 12px rgba(255,150,0,0.6))'
+        filter: 'drop-shadow(0 0 12px rgba(255, 130, 0, 0.6))',
       }}
     />
   );
