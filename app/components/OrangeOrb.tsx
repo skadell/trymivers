@@ -9,16 +9,21 @@ export default function OrangeOrb() {
     const orb = orbRef.current;
     if (!orb) return;
 
-    let angle = 0;
-    const radius = 150;
-    const centerX = window.innerWidth / 2 - 50;
-    const centerY = window.innerHeight / 2 - 50;
+    let angleX = 0;
+    let angleY = 0;
 
     const animate = () => {
-      angle += 0.01;
-      const x = centerX + radius * Math.cos(angle);
-      const y = centerY + radius * Math.sin(angle);
+      angleX += 0.008; // Juster for fart
+      angleY += 0.005;
+
+      const amplitudeX = window.innerWidth / 3;
+      const amplitudeY = window.innerHeight / 3;
+
+      const x = Math.sin(angleX) * amplitudeX + window.innerWidth / 2 - 64;
+      const y = Math.cos(angleY) * amplitudeY + window.innerHeight / 2 - 64;
+
       orb.style.transform = `translate(${x}px, ${y}px)`;
+
       requestAnimationFrame(animate);
     };
 
