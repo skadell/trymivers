@@ -16,10 +16,10 @@ export default function OrangeOrb() {
       const screenHeight = window.innerHeight;
 
       // Juster området slik at den beveger seg i et annet mønster
-      const maxX = screenWidth / 2 - 80;
-      const maxY = screenHeight / 2 - 80;
-      const minX = -screenWidth / 2 + 80;
-      const minY = -screenHeight / 2 + 80;
+      const maxX = screenWidth / 2 - 100;
+      const maxY = screenHeight / 2 - 100;
+      const minX = -screenWidth / 2 + 100;
+      const minY = -screenHeight / 2 + 100;
 
       const randomX = Math.floor(Math.random() * (maxX - minX) + minX + 40); //  +40 forskyvning
       const randomY = Math.floor(Math.random() * (maxY - minY) + minY - 20); // -20 forskyvning
