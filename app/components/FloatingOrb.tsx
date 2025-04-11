@@ -29,7 +29,7 @@ export default function FloatingOrb() {
       orb.style.transform = `translate(${randomX}px, ${randomY}px)`;
     };
 
-    const interval = setInterval(moveOrb, 1000);
+    const interval = setInterval(moveOrb, 4000);
     return () => clearInterval(interval);
   }, []);
 
