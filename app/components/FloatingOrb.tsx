@@ -25,11 +25,11 @@ export default function FloatingOrb() {
       const randomX = Math.floor(Math.random() * (maxX - minX) + minX);
       const randomY = Math.floor(Math.random() * (maxY - minY) + minY);
 
-      orb.style.transition = 'transform 1s ease-in-out';
+      orb.style.transition = 'transform 4s ease-in-out';
       orb.style.transform = `translate(${randomX}px, ${randomY}px)`;
     };
 
-    const interval = setInterval(moveOrb, 4000);
+    const interval = setInterval(moveOrb, 1000);
     return () => clearInterval(interval);
   }, []);
 
