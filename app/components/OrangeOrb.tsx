@@ -3,42 +3,45 @@
 import { useEffect, useRef } from 'react';
 
 export default function OrangeOrb() {
-  const orbRef = useRef<HTMLImageElement>(null);
+  const orbRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const orb = orbRef.current;
     if (!orb) return;
 
-    let angleX = 0;
-    let angleY = 0;
+    orb.style.transform = 'translate(0px, 0px)';
 
-    const animate = () => {
-      angleX += 0.008;
-      angleY += 0.006;
+    const moveOrb = () => {
+      const screenWidth = window.innerWidth;
+      const screenHeight = window.innerHeight;
 
-      const amplitudeX = window.innerWidth / 4;
-      const amplitudeY = window.innerHeight / 4;
+      // Juster området slik at den beveger seg i et annet mønster
+      const maxX = screenWidth / 2 - 80;
+      const maxY = screenHeight / 2 - 80;
+      const minX = -screenWidth / 2 + 80;
+      const minY = -screenHeight / 2 + 80;
 
-      const centerX = window.innerWidth / 2;
-      const centerY = window.innerHeight / 2;
+      const randomX = Math.floor(Math.random() * (maxX - minX) + minX + 40); //  +40 forskyvning
+      const randomY = Math.floor(Math.random() * (maxY - minY) + minY - 20); // -20 forskyvning
 
-      const x = centerX + amplitudeX * Math.cos(angleX) - 64;
-      const y = centerY + amplitudeY * Math.sin(angleY) - 64;
-
-      orb.style.transform = `translate(${x}px, ${y}px)`;
-
-      requestAnimationFrame(animate);
+      orb.style.transition = 'transform 5.5s ease-in-out';
+      orb.style.transform = `translate(${randomX}px, ${randomY}px)`;
     };
 
-    animate();
+    const interval = setInterval(moveOrb, 5500);
+    return () => clearInterval(interval);
   }, []);
 
   return (
-    <img
+    <div
       ref={orbRef}
-      src="/oransje-orb.png"
-      alt="Oransje Planet"
-      className="pointer-events-none fixed w-32 h-32 z-10"
+      className="fixed top-[60%] left-[70%] w-[160px] h-[160px] rounded-full z-10 pointer-events-none"
+      style={{
+        transform: 'translate(-50%, -50%)',
+        backgroundImage: 'url(/oransje-orb.png)',
+        backgroundSize: 'cover',
+        filter: 'drop-shadow(0 0 12px rgba(255, 130, 0, 0.6))',
+      }}
     />
   );
 }
