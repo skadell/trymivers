@@ -24,7 +24,7 @@ export default function OrangeOrb() {
       const randomX = Math.floor(Math.random() * (maxX - minX) + minX + 40); //  +40 forskyvning
       const randomY = Math.floor(Math.random() * (maxY - minY) + minY - 20); // -20 forskyvning
 
-      orb.style.transition = 'transform 5.5s ease-in-out';
+      orb.style.transition = 'transform 4s ease-in-out';
       orb.style.transform = `translate(${randomX}px, ${randomY}px)`;
     };
 
