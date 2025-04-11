@@ -20,6 +20,13 @@ export default function LinserPage() {
     className="hover:scale-105 transition-transform ml-2 mt-6"
   />
 </Link>
+      <Link href="/linser/glasslens">
+  <img
+    src="/linseknapp.png" // Du kan lage et eget ikon senere hvis du vil!
+    alt="Glasslens"
+    className="w-20 hover:scale-110 transition"
+  />
+</Link>
     </main>
   );
 }
