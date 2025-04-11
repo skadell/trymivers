@@ -2,21 +2,19 @@
 
 import { useEffect, useRef } from 'react';
 
-export default function FloatingOrb() {
+export default function OrangeOrb() {
   const orbRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const orb = orbRef.current;
     if (!orb) return;
 
-    // Startposisjon midt på skjermen
     orb.style.transform = 'translate(0px, 0px)';
 
     const moveOrb = () => {
       const screenWidth = window.innerWidth;
       const screenHeight = window.innerHeight;
 
-      // Begrenset område for bevegelse slik at den ikke forsvinner
       const maxX = screenWidth / 2 - 100;
       const maxY = screenHeight / 2 - 100;
       const minX = -screenWidth / 2 + 100;
@@ -39,9 +37,9 @@ export default function FloatingOrb() {
       className="fixed top-1/2 left-1/2 w-[160px] h-[160px] rounded-full z-10 pointer-events-none"
       style={{
         transform: 'translate(-50%, -50%)',
-        backgroundImage: 'url(/orb.png)',
+        backgroundImage: 'url(/oransje-orb.png)',
         backgroundSize: 'cover',
-        filter: 'drop-shadow(0 0 12px rgba(255,255,255,0.6))'
+        filter: 'drop-shadow(0 0 12px rgba(255,150,0,0.6))'
       }}
     />
   );
