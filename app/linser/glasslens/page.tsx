@@ -1,11 +1,13 @@
-// Filnavn: app/linser/glasslens/page.tsx
 'use client';
 
-import { useEffect, useRef } from 'react';
+import { useRef, useEffect } from 'react';
 
-export default function GlassLens() {
-  const canvasRef = useRef<HTMLCanvasElement>(null);
+export default function Glasslens() {
   const videoRef = useRef<HTMLVideoElement>(null);
+  const canvasRef = useRef<HTMLCanvasElement>(null);
+
+  const width = 500;
+  const height = 500;
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -18,37 +20,32 @@ export default function GlassLens() {
       video.srcObject = stream;
       video.play();
 
-      const tileSize = 50;
-      const cols = 10;
-      const rows = 10;
-
       const draw = () => {
-        if (video.readyState === video.HAVE_ENOUGH_DATA) {
-          context.clearRect(0, 0, canvas.width, canvas.height);
+        const tileCount = 10;
+        const gap = 2;
+        const tileWidth = (width - (tileCount - 1) * gap) / tileCount;
+        const tileHeight = (height - (tileCount - 1) * gap) / tileCount;
 
-          for (let y = 0; y < rows; y++) {
-            for (let x = 0; x < cols; x++) {
-              context.save();
-              context.beginPath();
-              context.rect(x * tileSize, y * tileSize, tileSize, tileSize);
-              context.clip();
-              context.filter = 'blur(1px)';
-              context.drawImage(video, 0, 0, canvas.width, canvas.height);
-              context.restore();
-            }
+        for (let row = 0; row < tileCount; row++) {
+          for (let col = 0; col < tileCount; col++) {
+            const x = col * (tileWidth + gap);
+            const y = row * (tileHeight + gap);
+
+            context.drawImage(video, 0, 0, width, height, x, y, tileWidth, tileHeight);
           }
         }
+
         requestAnimationFrame(draw);
       };
 
-      draw();
+      requestAnimationFrame(draw);
     });
   }, []);
 
   return (
-    <main className="min-h-screen bg-[#0033A0] flex flex-col items-center justify-center">
-      <div className="relative">
-        <canvas ref={canvasRef} width={500} height={500} className="rounded-lg shadow-lg" />
+    <main className="min-h-screen bg-[#0033A0] flex items-center justify-center">
+      <div>
+        <canvas ref={canvasRef} width={width} height={height} className="rounded-xl" />
         <video ref={videoRef} className="hidden" />
       </div>
     </main>
